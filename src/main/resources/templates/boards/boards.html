@@ -1,9 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <link th:href="@{/css/bootstrap.min.css}"
-          href="../css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 
@@ -17,7 +16,7 @@
             <button class="btn btn-primary float-end"
                     onclick="location.href='addForm.html'"
                     th:onclick="|location.href='@{/boards/add}'|"
-                    type="button" th:text="#{page.addBoard}">글 등록</button>
+                    th:text="#{page.addBoard}">글 등록</button>
         </div>
     </div>
 
@@ -29,17 +28,16 @@
                 <th th:text="#{label.board.id}">ID</th>
                 <th th:text="#{label.board.subject}">제목</th>
                 <th th:text="#{label.board.name}">작성자</th>
-                <th th:text="#{label.board.viewcnt}">조회수</th>
+                <th th:text="#{label.board.vicwcnt}">조회수</th>
                 <th th:text="#{label.board.regdate}">등록일</th>
-
             </tr>
             </thead>
             <tbody>
             <tr th:each="board : ${boards}">
-                <td><a href="item.html" th:href="@{/boards/{uid}(uid=${board.uid})}" th:text="${board.uid}">글 ID</a></td>
-                <td><a href="item.html" th:href="@{/boards/{uid}(uid=${board.uid})}" th:text="${board.subject}">제목</a></td>
+                <td><a th:href="@{/boards/{uid}(uid=${board.uid})}" th:text="${board.uid}">글 ID</a></td>
+                <td><a th:href="@{/boards/{uid}(uid=${board.uid})}" th:text="${board.subject}">제목</a></td>
                 <td th:text="${board.name}">작성자</td>
-                <td th:text="${board.viewcnt}">조회수</td>
+                <td th:text="${board.vicwcnt}">조회수</td>
                 <td th:text="${board.regdate}">등록일</td>
             </tr>
             </tbody>
